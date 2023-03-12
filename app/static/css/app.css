@@ -1,3 +1,21 @@
 body {
     padding-top: 5rem;
 }
+
+.twofields{
+    display: flex;
+}
+
+.twofields .form-group {
+    float:left;
+    padding: 5px;
+
+}
+
+#fbutton{
+    padding-top: 15px;
+}
+
+span img.locationicon, span img.bedroomicon, span img.bathroomicon{
+    width: 1.7em;
+}

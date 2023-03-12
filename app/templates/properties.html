@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+ {% block main %}
+
+<h1>Properties </h1>
+
+{% include 'flash_messages.html' %}
+
+<div id="card-deck shadow-sm"> 
+    {% for property in propertylist: %}
+    <div class="card">
+        <img class="card-img-top" src="{{ url_for('get_image', filename=property.photo)}}" alt="Property image" />
+        <div class="card-body"> 
+          <h5 class="card-title">{{property.property_title}}</h5>
+          <span><img class="locationicon" src="{{url_for('static', filename='images/locationicon.png')}}"/> {{property.location}} </span>
+          <span class="price"> <p>$</p>{{property.price}} </span>
+        </div>
+        <div class="card-footer">
+          <a href="{{url_for('viewproperty', propertyid = property.id)}}" class="cardbtn"> View Property </a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+ {% endblock %}
