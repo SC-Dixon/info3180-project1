@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 
  {% block main %}
 
@@ -7,17 +6,20 @@
 
 {% include 'flash_messages.html' %}
 
-<div id="card-deck shadow-sm"> 
-    {% for property in propertylist: %}
-    <div class="card">
+<div class="row row-cols-1 row-cols-3 g-4"> 
+    {% for property in propertieslist %}
+    <div class="card-container">
+      <div class="card rounded-top">
         <img class="card-img-top" src="{{ url_for('get_image', filename=property.photo)}}" alt="Property image" />
-        <div class="card-body"> 
+        <div class="card-body shadow-sm"> 
           <h5 class="card-title">{{property.property_title}}</h5>
-          <span><img class="locationicon" src="{{url_for('static', filename='images/locationicon.png')}}"/> {{property.location}} </span>
-          <span class="price"> <p>$</p>{{property.price}} </span>
+          <span><img class="locationicon" src="{{url_for('static', filename='icons/locationicon.png')}}"/> {{property.location}} </span>
+          <p class="mt-2"><span class="btn btn-primary mx-auto p-2 rounded-pill"> {{ "${:,.2f}".format(property.price) }} </span></p>
         </div>
-        <div class="card-footer">
-          <a href="{{url_for('viewproperty', propertyid = property.id)}}" class="cardbtn"> View Property </a>
+      </div>
+        
+        <div class="card-footer p-0">
+          <a role="button" class="btn btn-primary py-2 border-0 rounded-0 rounded-bottom fw-bold" style="width:100%; background-color: royalblue;" href="{{url_for('viewproperty', propertyid = property.id)}}"> View Property </a>
         </div>
       </div>
     {% endfor %}

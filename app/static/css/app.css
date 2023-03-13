@@ -12,10 +12,30 @@ body {
 
 }
 
+.rooms{
+    display: flex;
+}
+
+.rooms .roomspan {
+    float:left;
+    padding: 10px;
+
+}
+
+
 #fbutton{
     padding-top: 15px;
 }
 
 span img.locationicon, span img.bedroomicon, span img.bathroomicon{
     width: 1.7em;
+}
+
+
+
+
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
 }
